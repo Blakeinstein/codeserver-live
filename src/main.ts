@@ -23,14 +23,18 @@ function createIframe(src: string): HTMLIFrameElement {
   return frame;
 }
 
-async function checkPreviewAvailability(): Promise<Boolean> {
-  try {
-    let res = await fetch(previewUrl, {mode: 'no-cors'});
-    if (res.type == "opaque") {
-      return true;
-    }
-  } catch (err) {}
-  return false
+async function checkPreviewAvailability() {
+  while(previewFrame == null){
+    try {
+      let res = await fetch(previewUrl, {mode: 'no-cors'});
+      if (res.type == "opaque") {
+        addressBar.innerText = previewUrl;
+        previewFrame = createIframe(previewUrl);
+        preview.appendChild(previewFrame);
+      }
+    } catch (err) {}
+    await new Promise(resolve => setTimeout(resolve, 1000));
+  }
 }
 
 function main() {
@@ -38,13 +42,6 @@ function main() {
   editor.appendChild(editorFrame);
   document.querySelector("#reload")?.addEventListener('click', reloadPreviewFrame);
   
-  let interval = window.setInterval(async () => {
-    if (await checkPreviewAvailability()) {
-      addressBar.innerText = previewUrl;
-      previewFrame = createIframe(previewUrl);
-      preview.appendChild(previewFrame);
-      window.clearInterval(interval);
-    }
-  }, 1000)
+  checkPreviewAvailability();
 }
 window.addEventListener('load', main)
