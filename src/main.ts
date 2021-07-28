@@ -2,10 +2,19 @@ import "flex-splitter-directive";
 import "./style.css";
 import "flex-splitter-directive/styles.min.css";
 
-const editor = document.querySelector<HTMLDivElement>('#editor')!
-const preview = document.querySelector<HTMLDivElement>('#preview')!
+const editor = document.querySelector<HTMLDivElement>('#editor')!;
+const preview = document.querySelector<HTMLDivElement>('#preview')!;
 const editorUrl = 'http://3.144.14.133:8080';
 const previewUrl = 'http://3.144.14.133:1234';
+const addressBar = document.querySelector<HTMLDivElement>('#addressBar')!;
+let previewFrame: HTMLIFrameElement | null = null;
+let editorFrame: HTMLIFrameElement | null = null;
+
+function reloadPreviewFrame() {
+  if (previewFrame) {
+    previewFrame.src = previewFrame.src;
+  }
+}
 
 function createIframe(src: string): HTMLIFrameElement {
   let frame = document.createElement('iframe') as HTMLIFrameElement;
@@ -25,13 +34,14 @@ async function checkPreviewAvailability(): Promise<Boolean> {
 }
 
 function main() {
-  let editorFrame = createIframe(editorUrl);
+  editorFrame = createIframe(editorUrl);
   editor.appendChild(editorFrame);
-
+  document.querySelector("#reload")?.addEventListener('click', reloadPreviewFrame);
   
   let interval = window.setInterval(async () => {
     if (await checkPreviewAvailability()) {
-      let previewFrame = createIframe(previewUrl);
+      addressBar.innerText = previewUrl;
+      previewFrame = createIframe(previewUrl);
       preview.appendChild(previewFrame);
       window.clearInterval(interval);
     }
