@@ -1,0 +1,19 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "pull_remote",
+        "type": "shell",
+        "command": "sh /home/coder/pull_remote.sh",
+        "presentation": {
+          "reveal": "always"
+        },
+        "problemMatcher": [],
+        "options": {
+          "statusbar": {
+            "label": "$(repo-pull) rclone: pull"
+          }
+        }
+      }
+    ]
+  }
