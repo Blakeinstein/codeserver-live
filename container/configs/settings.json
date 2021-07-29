@@ -1,0 +1,16 @@
+{
+  "workbench.colorTheme": "Dark Horizon",
+  "workbench.activityBar.visible": false,
+  "workbench.tips.enabled": false,
+  "extensions.autoUpdate": false,
+  "extensions.ignoreRecommendations": true,
+  "telemetry.enableTelemetry": false,
+  "git.enabled": false,
+  "window.menuBarVisibility": "hidden",
+  "zenMode.fullScreen": false,
+  "editor.fontLigatures": true,
+  "editor.minimap.enabled": false,
+  "security.workspace.trust.enabled": false,
+  "workbench.editor.limit.enabled": true,
+  "workbench.editor.limit.value": 5
+}
