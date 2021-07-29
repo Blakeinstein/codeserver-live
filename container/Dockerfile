@@ -5,7 +5,6 @@ USER coder
 # Apply VS Code settings
 COPY configs/settings.json .local/share/code-server/User/settings.json
 COPY configs/config.yaml /home/coder/.config/code-server/config.yaml
-COPY configs/tasks.json /home/coder/.local/share/code-server/User/tasks.json
 
 # Use bash shell
 ENV SHELL=/bin/bash
@@ -17,7 +16,6 @@ RUN sudo apt-get update && sudo apt-get install unzip -y
 RUN sudo chown -R coder:coder /home/coder/.local
 
 # Install VS Code extensions:
-RUN code-server --install-extension philfontaine.autolaunch
 RUN code-server --install-extension seunlanlege.action-buttons
 
 # Install apt packages:
