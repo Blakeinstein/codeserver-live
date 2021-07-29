@@ -31,7 +31,7 @@ async function checkPreviewAvailability() {
       await axios.get(previewUrl);
     } catch (err) {
       // lol hacks go brrr
-      if (err.response.status < 405) {
+      if (err.response && err.response.status < 405) {
         addressBar.innerText = previewUrl;
         previewFrame = createIframe(previewUrl);
         preview.appendChild(previewFrame);
