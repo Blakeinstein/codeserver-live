@@ -29,7 +29,7 @@
             "name": "Run ▶",
             "singleInstance": true,
             "color": "#09D796",
-            "command": "npx kill-port 1234 && npm run dev",
+            "command": "npx kill-port 8081 && npm run dev",
         },
         {
             "name": "Install 📦",
