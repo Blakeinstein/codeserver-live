@@ -1,6 +1,6 @@
 #!/bin/bash
 
-START_DIR="${START_DIR:-/home/codepair/session}"
+START_DIR="${START_DIR:-/home/coder/project}"
 
 PREFIX="deploy-code-server"
 
