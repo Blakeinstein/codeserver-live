@@ -4,8 +4,8 @@ import "flex-splitter-directive/styles.min.css";
 
 const editor = document.querySelector<HTMLDivElement>('#editor')!;
 const preview = document.querySelector<HTMLDivElement>('#preview')!;
-const editorUrl = 'http://3.144.14.133:8080';
-const previewUrl = 'http://3.144.14.133:1234';
+const editorUrl = import.meta.env.VITE_EDITOR_URL;
+const previewUrl = import.meta.env.VITE_PREVIEW_URL;
 const addressBar = document.querySelector<HTMLDivElement>('#addressBar')!;
 let previewFrame: HTMLIFrameElement | null = null;
 let editorFrame: HTMLIFrameElement | null = null;
