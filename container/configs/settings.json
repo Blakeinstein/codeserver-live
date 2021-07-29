@@ -20,5 +20,29 @@
     "**/vite.config.js": true,
     "**/.gitignore": true,
     "**/*": true
-  }
+  },
+  "actionButtons": {
+    "reloadButton": null,
+    "loadNpmCommands": false,
+    "commands": [
+        {
+            "name": "Run ▶",
+            "singleInstance": true,
+            "color": "#09D796",
+            "command": "npx kill-port 1234 && npm run dev",
+        },
+        {
+            "name": "Install 📦",
+            "singleInstance": true,
+            "color": "#31A3D8",
+            "command": "npm install",
+        },
+        {
+            "name": "Show Terminal 🖥️",
+            "singleInstance": true,
+            "color": "#DEB841",
+            "command": "bash",
+        },
+    ]
+}
 }
