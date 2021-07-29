@@ -25,5 +25,6 @@ RUN sudo curl -fsSL https://deb.nodesource.com/setup_14.x | sudo bash -
 RUN sudo apt-get install -y nodejs
 
 # Use our custom entrypoint script first
-COPY scripts/entrypoint.sh /usr/bin/entrypoint.sh
-ENTRYPOINT ["/usr/bin/entrypoint.sh"]
+COPY scripts/entrypoint.sh /usr/bin/deploy-entrypoint.sh
+RUN sudo chown -R coder:coder /home/coder/.local
+ENTRYPOINT ["/usr/bin/deploy-entrypoint.sh"]
