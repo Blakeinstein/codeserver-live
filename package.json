@@ -11,6 +11,7 @@
     "vite": "^2.4.4"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "flex-splitter-directive": "^0.2.0"
   }
 }

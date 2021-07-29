@@ -1,6 +1,8 @@
 import "flex-splitter-directive";
 import "./style.css";
 import "flex-splitter-directive/styles.min.css";
+import "axios";
+import axios from "axios";
 
 const editor = document.querySelector<HTMLDivElement>('#editor')!;
 const preview = document.querySelector<HTMLDivElement>('#preview')!;
@@ -26,14 +28,17 @@ function createIframe(src: string): HTMLIFrameElement {
 async function checkPreviewAvailability() {
   while(previewFrame == null){
     try {
-      let res = await fetch(previewUrl, {mode: 'no-cors'});
-      if (res.type == "opaque") {
+      await axios.get(previewUrl);
+    } catch (err) {
+      // lol hacks go brrr
+      if (err.response.status < 405) {
         addressBar.innerText = previewUrl;
         previewFrame = createIframe(previewUrl);
         preview.appendChild(previewFrame);
+      } else {
+        await new Promise(resolve => setTimeout(resolve, 1000));
       }
-    } catch (err) {}
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    }
   }
 }
 

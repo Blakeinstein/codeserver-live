@@ -2,6 +2,13 @@
 # yarn lockfile v1
 
 
+axios@^0.21.1:
+  version "0.21.1"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.1.tgz#22563481962f4d6bde9a76d516ef0e5d3c09b2b8"
+  integrity sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA==
+  dependencies:
+    follow-redirects "^1.10.0"
+
 colorette@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/colorette/-/colorette-1.2.2.tgz#cbcc79d5e99caea2dbf10eb3a26fd8b3e6acfa94"
@@ -16,6 +23,11 @@ flex-splitter-directive@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/flex-splitter-directive/-/flex-splitter-directive-0.2.0.tgz#27a9a3da00ed13127b1c0421b559711233ddb3d6"
   integrity sha512-8CuIIVBtUBbS4Cjvy8jTfIrIs3F58/yUvZHyBqWGcIy2nbJ7Za8pohcuI0qS5uNtd/PF6nKK+SAPwoxKy0bwVw==
+
+follow-redirects@^1.10.0:
+  version "1.14.1"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.14.1.tgz#d9114ded0a1cfdd334e164e6662ad02bfd91ff43"
+  integrity sha512-HWqDgT7ZEkqRzBvc2s64vSZ/hfOceEol3ac/7tKwzuvEyWx3/4UegXh5oBOIotkGsObyk3xznnSRVADBgWSQVg==
 
 fsevents@~2.3.2:
   version "2.3.2"
