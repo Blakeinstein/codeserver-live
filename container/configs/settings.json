@@ -12,5 +12,13 @@
   "editor.minimap.enabled": false,
   "security.workspace.trust.enabled": false,
   "workbench.editor.limit.enabled": true,
-  "workbench.editor.limit.value": 5
+  "workbench.editor.limit.value": 5,
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/node_modules/**": true,
+    "**/tmp/**": true,
+    "**/vite.config.js": true,
+    "**/.gitignore": true,
+    "**/*": true
+  }
 }
