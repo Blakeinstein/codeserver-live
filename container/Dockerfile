@@ -16,7 +16,6 @@ RUN sudo apt-get update && sudo apt-get install unzip -y
 RUN sudo chown -R coder:coder /home/coder/.local
 
 # Install VS Code extensions:
-RUN code-server --install-extension mcagampan.dark-horizon
 RUN code-server --install-extension philfontaine.autolaunch
 RUN code-server --install-extension seunlanlege.action-buttons
 
