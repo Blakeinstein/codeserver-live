@@ -1,6 +1,6 @@
 FROM codercom/code-server:3.10.2
 
-USER codepair
+USER coder
 
 # Apply VS Code settings
 COPY configs/settings.json .local/share/code-server/User/settings.json
@@ -13,7 +13,7 @@ ENV SHELL=/bin/bash
 RUN sudo apt-get update && sudo apt-get install unzip -y
 
 # Fix permissions for code-server
-RUN sudo chown -R codepair:codepair /home/codepair/.local
+RUN sudo chown -R coder:coder /home/coder/.local
 
 # Install VS Code extensions:
 RUN code-server --install-extension mcagampan.dark-horizon
