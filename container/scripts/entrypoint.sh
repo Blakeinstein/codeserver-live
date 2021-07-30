@@ -39,8 +39,10 @@ if [ "${DOCKER_USER-}" ]; then
   fi
 fi
 
-[ -z "${FIREBASE_REF}" ] && REF="firebase-ref: test-user" || REF="firebase-ref: $FIREBASE_REF"
-echo $REF >> /home/coder/.config/code-server/config.yaml
+if ! grep -q firebase-ref /home/coder/.config/code-server/config.yaml; then
+  [ -z "${FIREBASE_REF}" ] && REF="firebase-ref: test-user" || REF="firebase-ref: $FIREBASE_REF"
+    echo $REF >> /home/coder/.config/code-server/config.yaml
+fi
 
 # Any additional params to pass
 ADD_PARAMS=""
