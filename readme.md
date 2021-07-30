@@ -79,9 +79,10 @@ project
 ## Usage
 
 1. Clone this repository. (if you want to run the docker session on another machine clone it there as well.)
-2. Run `sudo docker-compose up` to start the docker session.
-3. Update the `.env` file with the ip for the machine running docker.
-4. For the front end.
+2. Update config.yaml with your firebase config.
+3. Run `sudo docker-compose up` to start the docker session.
+4. Update the `.env` file with the ip for the machine running docker.
+5. For the front end.
 	```js
 		npm i or yarn // install dependencies
 		npm run dev or yarn dev // run the frontend server.

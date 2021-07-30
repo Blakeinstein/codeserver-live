@@ -20,4 +20,28 @@ project_init
 
 echo "[$PREFIX] Starting code-server..."
 # Now we can run code-server with the default entrypoint
-/usr/bin/entrypoint.sh --bind-addr 0.0.0.0:8080 $START_DIR
+set -eu
+
+# We do this first to ensure sudo works below when renaming the user.
+# Otherwise the current container UID may not exist in the passwd database.
+eval "$(fixuid -q)"
+
+if [ "${DOCKER_USER-}" ]; then
+  USER="$DOCKER_USER"
+  if [ "$DOCKER_USER" != "$(whoami)" ]; then
+    echo "$DOCKER_USER ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers.d/nopasswd > /dev/null
+    # Unfortunately we cannot change $HOME as we cannot move any bind mounts
+    # nor can we bind mount $HOME into a new home as that requires a privileged container.
+    sudo usermod --login "$DOCKER_USER" coder
+    sudo groupmod -n "$DOCKER_USER" coder
+
+    sudo sed -i "/coder/d" /etc/sudoers.d/nopasswd
+  fi
+fi
+
+ADD_PARAMS=""
+if [ "${ADD_PARAMS}" ]; then
+    ADD_PARAMS="${ADD_PARAMS}"
+fi
+
+dumb-init /usr/bin/code-server --bind-addr 0.0.0.0:8080 $ADD_PARAMS $START_DIR
