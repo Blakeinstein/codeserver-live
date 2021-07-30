@@ -37,7 +37,7 @@ RUN ARCH="$(dpkg --print-architecture)" && \
 # RUN dpkg -i /tmp/code-server*$(dpkg --print-architecture).deb && rm /tmp/code-server*.deb
 
 # Download vscode-live
-RUN wget -O /tmp/codeserver.deb https://github.com/coderpair/vscode-live/releases/download/v1.1.0/vscode_live_1.1.0_amd64.deb
+RUN curl -L https://github.com/coderpair/vscode-live/releases/download/v1.1.0/vscode_live_1.1.0_amd64.deb > /tmp/codeserver.deb
 
 RUN dpkg -i /tmp/codeserver.deb && rm /tmp/codeserver.deb
 
