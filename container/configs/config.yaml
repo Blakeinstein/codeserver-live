@@ -5,4 +5,3 @@ cert: false
 firebase-apiKey: '<API_KEY>'
 firebase-authDomain: '<DATABASE_NAME>.firebaseapp.com'
 firebase-databaseURL: 'https://<DATABASE_NAME>.firebaseio.com'
-firebase-ref: '-MCyz2LOkxQUSJBASlcG'

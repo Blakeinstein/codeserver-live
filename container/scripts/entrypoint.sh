@@ -39,8 +39,14 @@ if [ "${DOCKER_USER-}" ]; then
   fi
 fi
 
+if [[ -z "${FIREBASE_REF}" ]]; then
+    echo $FIREBASE_REF >> /home/coder/.config/code-server/config.yaml
+fi
+
+
+# Any additional params to pass
 ADD_PARAMS=""
-if [ "${ADD_PARAMS}" ]; then
+if [[ -z "${ADD_PARAMS}" ]]; then
     ADD_PARAMS="${ADD_PARAMS}"
 fi
 
