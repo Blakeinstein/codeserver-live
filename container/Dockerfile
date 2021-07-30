@@ -52,7 +52,7 @@ USER coder
 
 # Apply VS Code settings
 COPY configs/settings.json .local/share/code-server/User/settings.json
-COPY configs/config.yaml /home/coder/.config/code-server/config.yaml
+COPY --chown=coder configs/config.yaml /home/coder/.config/code-server/config.yaml
 
 # Use bash shell
 ENV SHELL=/bin/bash
