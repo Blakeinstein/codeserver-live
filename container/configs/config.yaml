@@ -1,6 +1,7 @@
 bind-addr: 127.0.0.1:8080
 auth: none
 password: password
+admin: password
 cert: false
 firebase-apiKey: '<API_KEY>'
 firebase-authDomain: '<DATABASE_NAME>.firebaseapp.com'
